@@ -1,0 +1,81 @@
+{
+	"name": "cvu",
+	"description": "A tiny, performant, utility for constructing variant based CSS class strings.",
+	"version": "0.1.1",
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"packageManager": "pnpm@8.5.1",
+	"author": "Eric Taylor <eric@daxos.com> (https://github.com/erictaylor)",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/erictaylor/cvu.git"
+	},
+	"homepage": "https://github.com/erictaylor/cvu#readme",
+	"bugs": "https://github.com/erictaylor/cvu/issues",
+	"keywords": [
+		"class variance",
+		"classes",
+		"classname",
+		"classnames",
+		"css",
+		"cvu",
+		"cva",
+		"variants"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist/*.mjs",
+		"dist/*.mjs.map",
+		"dist/*.js",
+		"dist/*.js.map",
+		"dist/*.d.ts"
+	],
+	"scripts": {
+		"build": "pnpm run build:lib && pnpm run build:dts",
+		"build:dts": "tsc --project tsconfig.dts.json",
+		"build:lib": "node scripts/build.mjs",
+		"format": "rome format --write ./",
+		"lint": "rome check ./",
+		"prepublishOnly": "pnpm run build",
+		"size": "size-limit",
+		"size:why": "size-limit --why",
+		"test": "pnpm run test:rome && pnpm run test:vitest run",
+		"test:rome": "rome ci ./src",
+		"test:vitest": "vitest"
+	},
+	"dependencies": {
+		"clsx": "^1.2.1"
+	},
+	"devDependencies": {
+		"@size-limit/preset-small-lib": "^8.2.4",
+		"cspell": "^6.31.1",
+		"esbuild": "^0.17.19",
+		"rome": "^12.1.2",
+		"size-limit": "^8.2.4",
+		"typescript": "^5.0.4",
+		"vitest": "^0.30.1"
+	},
+	"size-limit": [
+		{
+			"path": "dist/index.js",
+			"limit": "800 B"
+		},
+		{
+			"path": "dist/index.mjs",
+			"limit": "500 B"
+		}
+	],
+	"sideEffects": false
+}

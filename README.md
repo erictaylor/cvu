@@ -333,6 +333,17 @@ import { cvu } from "cvu";
 const classVariants = cvu("base", variantsConfig);
 ```
 
+#### Parameters
+
+1. `base` - the base class name (`string`, `string[]`, or other `clsx` compatible value).
+2. `variantsConfig` - (optional)
+
+   - `variants` - your variants schema
+   - `componentVariants` - variants based on a combination of previously defined variants
+   - `defaultVariants` - set default values for previously defined variants.
+
+     _Note: these default values can be removed completely by setting the variant as `null`._
+
 ### `config`
 
 Allows you to provide your own underlying `cx` implementation or wrapping logic.
@@ -344,17 +355,6 @@ export const customCvu = config({
   cx: (...inputs) => twMerge(cx(inputs)),
 });
 ```
-
-#### Parameters
-
-1. `base` - the base class name (`string`, `string[]`, or other `clsx` compatible value).
-2. `variantsConfig` - (optional)
-
-   - `variants` - your variants schema
-   - `componentVariants` - variants based on a combination of previously defined variants
-   - `defaultVariants` - set default values for previously defined variants.
-
-     _Note: these default values can be removed completely by setting the variant as `null`._
 
 ## Acknowledgements
 

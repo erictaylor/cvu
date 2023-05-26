@@ -41,9 +41,9 @@ You can enable autocompletion inside `cvu` using the steps below:
 
 ```json
 {
-	"tailwindCSS.experimental.classRegex": [
-		["cvu\\s*(?:<[\\s\\S]*?>)?\\s*\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-	]
+  "tailwindCSS.experimental.classRegex": [
+    ["cvu\\s*(?:<[\\s\\S]*?>)?\\s*\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }
 ```
 
@@ -63,20 +63,20 @@ import { cvu, type VariantProps } from "cvu";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cvu(["your", "base", "classes"], {
-	variants: {
-		intent: {
-			primary: ["your", "primary", "classes"],
-		},
-	},
-	defaultVariants: {
-		intent: "primary",
-	},
+  variants: {
+    intent: {
+      primary: ["your", "primary", "classes"],
+    },
+  },
+  defaultVariants: {
+    intent: "primary",
+  },
 });
 
 export const buttonClassNames = (
-	props: VariantProps<typeof buttonVariants>
+  props: VariantProps<typeof buttonVariants>
 ) => {
-	return twMerge(buttonVariants(props));
+  return twMerge(buttonVariants(props));
 };
 ```
 
@@ -96,37 +96,37 @@ Here is a simple example of a `cvu` generated utility function for generating cl
 import { cvu } from "cvu";
 
 const buttonClassnames = cvu(
-	["font-semibold", "border", "rounded"],
-	// --or--
-	// 'font-semibold border rounded'
-	{
-		variants: {
-			intent: {
-				primary: [
-					"bg-blue-500",
-					"text-white",
-					"border-transparent",
-					"hover:bg-blue-600",
-				],
-				secondary: "bg-white text-gray-800 border-gray-400 hover:bg-gray-100",
-			},
-			size: {
-				sm: "text-sm py-1 px-2",
-				md: ["text-base", "py-2", "px-4"],
-			},
-		},
-		compoundVariants: [
-			{
-				intent: "primary",
-				size: "md",
-				className: "uppercase",
-			},
-		],
-		defaultVariants: {
-			intent: "primary",
-			size: "md",
-		},
-	}
+  ["font-semibold", "border", "rounded"],
+  // --or--
+  // 'font-semibold border rounded'
+  {
+    variants: {
+      intent: {
+        primary: [
+          "bg-blue-500",
+          "text-white",
+          "border-transparent",
+          "hover:bg-blue-600",
+        ],
+        secondary: "bg-white text-gray-800 border-gray-400 hover:bg-gray-100",
+      },
+      size: {
+        sm: "text-sm py-1 px-2",
+        md: ["text-base", "py-2", "px-4"],
+      },
+    },
+    compoundVariants: [
+      {
+        intent: "primary",
+        size: "md",
+        className: "uppercase",
+      },
+    ],
+    defaultVariants: {
+      intent: "primary",
+      size: "md",
+    },
+  }
 );
 
 buttonClassnames();
@@ -144,26 +144,26 @@ Variants that apply when multiple other variant conditions are met.
 import { cvu } from "cvu";
 
 const buttonClassnames = cva("…", {
-	variants: {
-		intent: {
-			primary: "…",
-			secondary: "…",
-		},
-		size: {
-			sm: "…",
-			md: "…",
-		},
-	},
-	compoundVariants: [
-		// Applied via
-		//  `buttonClassnames({ intent: 'primary', size: 'md' });`
-		{
-			intent: "primary",
-			size: "md",
-			// This is the className that will be applied.
-			className: "…",
-		},
-	],
+  variants: {
+    intent: {
+      primary: "…",
+      secondary: "…",
+    },
+    size: {
+      sm: "…",
+      md: "…",
+    },
+  },
+  compoundVariants: [
+    // Applied via
+    //  `buttonClassnames({ intent: 'primary', size: 'md' });`
+    {
+      intent: "primary",
+      size: "md",
+      // This is the className that will be applied.
+      className: "…",
+    },
+  ],
 });
 ```
 
@@ -173,28 +173,28 @@ const buttonClassnames = cva("…", {
 import { cvu } from "cvu";
 
 const buttonClassnames = cva("…", {
-	variants: {
-		intent: {
-			primary: "…",
-			secondary: "…",
-		},
-		size: {
-			sm: "…",
-			md: "…",
-		},
-	},
-	compoundVariants: [
-		// Applied via
-		//  `buttonClassnames({ intent: 'primary', size: 'md' });`
-		//     or
-		//  `buttonClassnames({ intent: 'secondary', size: 'md' });`
-		{
-			intent: ["primary", "secondary"],
-			size: "md",
-			// This is the className that will be applied.
-			className: "…",
-		},
-	],
+  variants: {
+    intent: {
+      primary: "…",
+      secondary: "…",
+    },
+    size: {
+      sm: "…",
+      md: "…",
+    },
+  },
+  compoundVariants: [
+    // Applied via
+    //  `buttonClassnames({ intent: 'primary', size: 'md' });`
+    //     or
+    //  `buttonClassnames({ intent: 'secondary', size: 'md' });`
+    {
+      intent: ["primary", "secondary"],
+      size: "md",
+      // This is the className that will be applied.
+      className: "…",
+    },
+  ],
 });
 ```
 
@@ -208,11 +208,11 @@ This is useful in cases where want to pass a React `className` prop to be merged
 import { cvu } from "cvu";
 
 const buttonClassnames = cvu("rounded", {
-	variants: {
-		intent: {
-			primary: "bg-blue-500",
-		},
-	},
+  variants: {
+    intent: {
+      primary: "bg-blue-500",
+    },
+  },
 });
 
 buttonClassnames(undefined, "m-4");
@@ -243,24 +243,24 @@ Additionally, `cvu` offers the `VariantPropsWithRequired` helper to extract vari
 import { cvu, type VariantPropsWithRequired } from "cvu";
 
 type ButtonClassnamesProps = VariantPropsWithRequired<
-	typeof buttonClassnames,
-	"intent"
+  typeof buttonClassnames,
+  "intent"
 >;
 const buttonClassnames = cvu("…", {
-	variants: {
-		intent: {
-			primary: "…",
-			secondary: "…",
-		},
-		size: {
-			sm: "…",
-			md: "…",
-		},
-	},
+  variants: {
+    intent: {
+      primary: "…",
+      secondary: "…",
+    },
+    size: {
+      sm: "…",
+      md: "…",
+    },
+  },
 });
 
 const wrapper = (props: ButtonClassnamesProps) => {
-	return buttonClassnames(props);
+  return buttonClassnames(props);
 };
 
 // ❌ TypeScript Error:
@@ -291,18 +291,18 @@ type CardBaseClassNamesProps = VariantProps<typeof cardBaseClassnames>;
 const cardBaseClassnames = cvu(/* … */);
 
 export interface CardClassnamesProps
-	extends BoxClassnamesProps,
-		CardBaseClassnamesProps {}
+  extends BoxClassnamesProps,
+    CardBaseClassnamesProps {}
 export const cardClassnames =
-	({}: /* destructured props */ CardClassnamesProps = {}) =>
-		cx(
-			boxClassnames({
-				/* … */
-			}),
-			cardBaseClassnames({
-				/* … */
-			})
-		);
+  ({}: /* destructured props */ CardClassnamesProps = {}) =>
+    cx(
+      boxClassnames({
+        /* … */
+      }),
+      cardBaseClassnames({
+        /* … */
+      })
+    );
 ```
 
 ## API

@@ -1,5 +1,9 @@
 import clsx, { type ClassValue } from 'clsx';
 
+type ConfigWrapperProps = {
+	cx: (...inputs: Parameters<typeof clsx>) => ReturnType<typeof clsx>;
+};
+
 type StringToBoolean<T> = T extends 'true' | 'false' ? boolean : T;
 
 type ClassNameProp = {
@@ -57,65 +61,75 @@ const valueToString = <T extends unknown>(value: T): string => {
 	return value?.toString() || '';
 };
 
-export const cvu = <T>(
-	base?: ClassValue,
-	variantsConfig?: VariantsConfig<T>,
-): VariantClassNameFn<T> => {
-	const { variants, defaultVariants, compoundVariants } = variantsConfig || {};
+export const config =
+	({ cx }: ConfigWrapperProps) =>
+	<T>(
+		base?: ClassValue,
+		variantsConfig?: VariantsConfig<T>,
+	): VariantClassNameFn<T> => {
+		const { variants, defaultVariants, compoundVariants } =
+			variantsConfig || {};
 
-	return (variantProps, className) => {
-		if (!variants) {
-			return clsx(base, className);
-		}
+		return (variantProps, className) => {
+			if (!variants) {
+				return cx(base, className);
+			}
 
-		const variantClassNames: ClassValue[] = Object.entries(variants).map(
-			([variant, variantOptions]) => {
-				const variantProp = variantProps?.[variant];
-				const defaultVariantProp = defaultVariants?.[variant];
+			const variantClassNames: ClassValue[] = Object.entries(variants).map(
+				([variant, variantOptions]) => {
+					const variantProp = variantProps?.[variant];
+					const defaultVariantProp = defaultVariants?.[variant];
 
-				if (variantProp === null) {
-					return null;
-				}
+					if (variantProp === null) {
+						return null;
+					}
 
-				const variantKey: string =
-					valueToString(variantProp) || valueToString(defaultVariantProp);
+					const variantKey: string =
+						valueToString(variantProp) || valueToString(defaultVariantProp);
 
-				return variantOptions?.[variantKey];
-			},
-		);
-
-		const variantPropsWithoutUndefined: ConfigSchema | undefined =
-			variantProps &&
-			Object.fromEntries(
-				Object.entries(variantProps).filter(([, value]) => value !== undefined),
-			);
-
-		const compoundVariantClassNames: ClassValue[] | undefined =
-			compoundVariants?.reduce<ClassValue[]>(
-				(acc, { className: compoundClassName, ...compoundVariantOptions }) => {
-					return Object.entries(compoundVariantOptions).every(
-						([key, value]) => {
-							const o = {
-								...defaultVariants,
-								...variantPropsWithoutUndefined,
-							};
-							const v = o[key];
-
-							return Array.isArray(value) && v != null
-								? value.includes(v)
-								: v === value;
-						},
-					)
-						? [...acc, compoundClassName]
-						: acc;
+					return variantOptions?.[variantKey];
 				},
-				[],
 			);
 
-		return clsx(base, variantClassNames, compoundVariantClassNames, className);
-	};
-};
+			const variantPropsWithoutUndefined: ConfigSchema | undefined =
+				variantProps &&
+				Object.fromEntries(
+					Object.entries(variantProps).filter(
+						([, value]) => value !== undefined,
+					),
+				);
 
-export { clsx as cx };
+			const compoundVariantClassNames: ClassValue[] | undefined =
+				compoundVariants?.reduce<ClassValue[]>(
+					(
+						acc,
+						{ className: compoundClassName, ...compoundVariantOptions },
+					) => {
+						return Object.entries(compoundVariantOptions).every(
+							([key, value]) => {
+								const o = {
+									...defaultVariants,
+									...variantPropsWithoutUndefined,
+								};
+								const v = o[key];
+
+								return Array.isArray(value) && v != null
+									? value.includes(v)
+									: v === value;
+							},
+						)
+							? [...acc, compoundClassName]
+							: acc;
+					},
+					[],
+				);
+
+			return cx(base, variantClassNames, compoundVariantClassNames, className);
+		};
+	};
+
+export const cx = clsx;
+
+export const cvu = config({ cx });
 
 export default cvu;

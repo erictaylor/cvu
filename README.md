@@ -82,6 +82,22 @@ export const buttonClassNames = (
 
 </details>
 
+If you find yourself using `twMerge` a lot, you can create a custom `cvu` function that wraps `twMerge` for you.
+
+<details>
+<summary>Example with custom cvu</summary>
+
+```tsx
+import { config, cx } from "cvu";
+import { twMerge } from "tailwind-merge";
+
+export const cvu = config({
+  cx: (...inputs) => twMerge(cx(inputs)),
+});
+```
+
+</details>
+
 ## Getting Started
 
 ### Your First Utility
@@ -315,6 +331,18 @@ Builds a typed utility function for constructing className strings with given va
 import { cvu } from "cvu";
 
 const classVariants = cvu("base", variantsConfig);
+```
+
+### `config`
+
+Allows you to provide your own underlying `cx` implementation or wrapping logic.
+
+```ts
+import { config, cx } from "cvu";
+
+export const customCvu = config({
+  cx: (...inputs) => twMerge(cx(inputs)),
+});
 ```
 
 #### Parameters

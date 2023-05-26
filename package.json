@@ -1,7 +1,7 @@
 {
 	"name": "cvu",
 	"description": "A tiny, performant, utility for constructing variant based CSS class strings.",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"license": "MIT",
 	"publishConfig": {
 		"access": "public"
@@ -70,11 +70,11 @@
 	"size-limit": [
 		{
 			"path": "dist/index.js",
-			"limit": "800 B"
+			"limit": "1 kB"
 		},
 		{
 			"path": "dist/index.mjs",
-			"limit": "500 B"
+			"limit": "600 B"
 		}
 	],
 	"sideEffects": false

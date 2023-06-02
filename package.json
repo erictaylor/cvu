@@ -1,7 +1,7 @@
 {
 	"name": "cvu",
 	"description": "A tiny, performant, utility for constructing variant based CSS class strings.",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"license": "MIT",
 	"publishConfig": {
 		"access": "public"
@@ -45,7 +45,7 @@
 	"scripts": {
 		"build": "pnpm run build:lib && pnpm run build:dts",
 		"build:dts": "tsc --project tsconfig.dts.json",
-		"build:lib": "node scripts/build.mjs",
+		"build:lib": "node bin/build.mjs",
 		"format": "rome format --write ./",
 		"lint": "rome check ./",
 		"prepublishOnly": "pnpm run build",

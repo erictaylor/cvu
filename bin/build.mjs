@@ -2,8 +2,9 @@ import * as esbuild from 'esbuild';
 
 /** @type esbuild.BuildOptions */
 const sharedOptions = {
-	entryPoints: ['src/index.ts'],
 	bundle: true,
+	entryPoints: ['src/index.ts'],
+	external: [],
 	minify: true,
 	sourcemap: true,
 	target: 'es2019',

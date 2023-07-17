@@ -56,7 +56,7 @@
 		"test:vitest": "vitest"
 	},
 	"dependencies": {
-		"clsx": "^1.2.1"
+		"clsx": "^2.0.0"
 	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^8.2.4",

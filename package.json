@@ -61,7 +61,7 @@
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^8.2.4",
 		"cspell": "^6.31.1",
-		"esbuild": "^0.17.19",
+		"esbuild": "^0.19.2",
 		"rome": "^12.1.2",
 		"size-limit": "^8.2.4",
 		"typescript": "^5.0.4",

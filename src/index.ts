@@ -107,8 +107,8 @@ export const config =
 						acc,
 						{ className: compoundClassName, ...compoundVariantOptions },
 					) => {
-						return Object.entries(compoundVariantOptions).every(
-							([key, value]) => {
+						if (
+							Object.entries(compoundVariantOptions).every(([key, value]) => {
 								const o = {
 									...defaultVariants,
 									...variantPropsWithoutUndefined,
@@ -118,10 +118,14 @@ export const config =
 								return Array.isArray(value) && v != null
 									? value.includes(v)
 									: v === value;
-							},
-						)
-							? [...acc, compoundClassName]
-							: acc;
+							})
+						) {
+							acc.push(compoundClassName);
+
+							return acc;
+						} else {
+							return acc;
+						}
 					},
 					[],
 				);

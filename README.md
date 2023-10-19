@@ -88,10 +88,10 @@ If you find yourself using `twMerge` a lot, you can create a custom `cvu` functi
 <summary>Example with custom cvu</summary>
 
 ```tsx
-import { config, cx } from "cvu";
+import { type ClassVariantUtility, config, cx } from "cvu";
 import { twMerge } from "tailwind-merge";
 
-export const cvu = config({
+export const cvu: ClassVariantUtility = config({
   cx: (...inputs) => twMerge(cx(inputs)),
 });
 ```

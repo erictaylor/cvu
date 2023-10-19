@@ -4,7 +4,7 @@ import * as esbuild from 'esbuild';
 const sharedOptions = {
 	bundle: true,
 	entryPoints: ['src/index.ts'],
-	external: [],
+	external: ['clsx'],
 	minify: true,
 	sourcemap: true,
 	target: 'es2019',

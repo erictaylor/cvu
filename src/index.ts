@@ -57,16 +57,18 @@ export type VariantPropsWithRequired<
 	K extends keyof VariantProps<T>,
 > = VariantProps<T> & Required<Pick<VariantProps<T>, K>>;
 
-const valueToString = <T extends unknown>(value: T): string => {
+export type ClassVariantUtility = <T>(
+	base?: ClassValue,
+	variantsConfig?: VariantsConfig<T>,
+) => VariantClassNameFn<T>;
+
+const valueToString = <T>(value: T): string => {
 	return value?.toString() || '';
 };
 
 export const config =
-	({ cx }: ConfigWrapperProps) =>
-	<T>(
-		base?: ClassValue,
-		variantsConfig?: VariantsConfig<T>,
-	): VariantClassNameFn<T> => {
+	({ cx }: ConfigWrapperProps): ClassVariantUtility =>
+	(base, variantsConfig) => {
 		const { variants, defaultVariants, compoundVariants } =
 			variantsConfig || {};
 

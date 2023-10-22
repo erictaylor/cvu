@@ -47,10 +47,12 @@ type VariantClassNameFn<T> = (
 	className?: string,
 ) => string;
 
-export type VariantProps<T extends VariantClassNameFn<ConfigSchema>> = Exclude<
-	Parameters<T>[0],
-	undefined
->;
+type NonNullVariantPropsValues<T extends Record<string, unknown>> = {
+	[K in keyof T]: Exclude<T[K], null>;
+};
+
+export type VariantProps<T extends VariantClassNameFn<ConfigSchema>> =
+	NonNullVariantPropsValues<Exclude<Parameters<T>[0], undefined>>;
 
 export type VariantPropsWithRequired<
 	T extends VariantClassNameFn<ConfigSchema>,

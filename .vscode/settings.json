@@ -1,31 +1,30 @@
 {
 	"[javascript]": {
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[javascriptreact]": {
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[json]": {
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[typescript]": {
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[typescriptreact]": {
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"editor.codeActionsOnSave": {
-		"source.fixAll.rome": true,
-		"source.organizeImports.rome": true
+		"source.organizeImports.biome": true,
+		"quickfix.biome": true
 	},
 	"editor.formatOnSave": true,
 	"eslint.enable": false,
 	"prettier.enable": false,
 	"tailwindCSS.experimental.classRegex": [
-    // This is been modified from the docs version to support TypeScript generics and whitespaces.
-		[
-			"cvu\\s*(?:<[\\s\\S]*?>)?\\s*\\(([^)]*)\\)",
-			"[\"'`]([^\"'`]*).*?[\"'`]"
-		]
-  ]
+		["cvu\\s*(?:<[\\s\\S]*?>)?\\s*\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+	]
 }

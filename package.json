@@ -1,7 +1,7 @@
 {
 	"name": "cvu",
 	"description": "A tiny, performant, utility for constructing variant based CSS class strings.",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"license": "MIT",
 	"publishConfig": {
 		"access": "public"
@@ -46,23 +46,23 @@
 		"build": "pnpm run build:lib && pnpm run build:dts",
 		"build:dts": "tsc --project tsconfig.dts.json",
 		"build:lib": "node bin/build.mjs",
-		"format": "rome format --write ./",
-		"lint": "rome check ./",
+		"format": "biome format --write ./",
+		"lint": "biome check ./",
 		"prepublishOnly": "pnpm run build",
 		"size": "size-limit",
 		"size:why": "size-limit --why",
-		"test": "pnpm run test:rome && pnpm run test:vitest run",
-		"test:rome": "rome ci ./src",
+		"test": "pnpm run test:biome && pnpm run test:vitest run",
+		"test:biome": "biome ci ./src",
 		"test:vitest": "vitest"
 	},
 	"dependencies": {
 		"clsx": "^2.0.0"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^1.3.1",
 		"@size-limit/preset-small-lib": "^8.2.4",
 		"cspell": "^7.3.8",
 		"esbuild": "^0.19.2",
-		"rome": "^12.1.2",
 		"size-limit": "^8.2.4",
 		"typescript": "^5.0.4",
 		"vitest": "^0.34.1"

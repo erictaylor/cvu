@@ -1,5 +1,5 @@
-import { cvu } from './index';
 import { describe, expect, it } from 'vitest';
+import { cvu } from './index';
 
 describe('cvu', () => {
 	it('should return a blank string when no arguments are passed', () => {

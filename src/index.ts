@@ -32,7 +32,7 @@ type VariantsConfig<T> = T extends ConfigSchema
 			compoundVariants?: T extends ConfigSchema
 				? ((ConfigVariants<T> | ConfigVariantsMulti<T>) & ClassNameProp)[]
 				: never;
-	  }
+		}
 	: never;
 
 type ConfigVariantProps<T> = T extends ConfigSchema
@@ -125,9 +125,9 @@ export const config =
 							acc.push(compoundClassName);
 
 							return acc;
-						} else {
-							return acc;
 						}
+
+						return acc;
 					},
 					[],
 				);

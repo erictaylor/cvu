@@ -8,8 +8,8 @@
 		"forceConsistentCasingInFileNames": true,
 		"inlineSources": false,
 		"isolatedModules": true,
-    "lib": ["es2019"],
-    "module": "esnext",
+		"lib": ["es2019"],
+		"module": "esnext",
 		"moduleResolution": "node",
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
@@ -21,9 +21,9 @@
 		"preserveWatchOutput": true,
 		"skipLibCheck": true,
 		"strict": true,
-    "target": "es2019",
-		"useUnknownInCatchVariables": true,
+		"target": "es2019",
+		"useUnknownInCatchVariables": true
 	},
 	"exclude": ["node_modules", "dist"],
-  "include": ["src"]
+	"include": ["src"]
 }

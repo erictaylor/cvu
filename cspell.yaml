@@ -15,10 +15,10 @@ minWordLength: 5
 version: "0.2"
 words:
   - autodocs
+  - biomejs
   - classname
   - daxos
   - erictaylor
   - falsey
   - nextjs
-  - romeconfig
   - tailwindcss

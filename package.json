@@ -60,9 +60,12 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.6.3",
+		"@commitlint/cli": "^19.2.1",
+		"@commitlint/config-conventional": "^19.1.0",
 		"@size-limit/preset-small-lib": "^11.1.2",
 		"cspell": "^8.6.1",
 		"esbuild": "^0.20.2",
+		"lefthook": "^1.6.7",
 		"size-limit": "^11.1.2",
 		"typescript": "^5.4.3",
 		"vitest": "^1.4.0"

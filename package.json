@@ -39,13 +39,12 @@
 	"scripts": {
 		"build": "tsc --project tsconfig.build.json",
 		"check": "biome check ./",
+		"check:ci": "biome ci ./",
 		"format": "biome format --write ./",
 		"prepublishOnly": "pnpm run build",
 		"size": "size-limit",
 		"size:why": "size-limit --why",
-		"test": "pnpm run test:biome && pnpm run test:vitest run",
-		"test:biome": "biome ci ./",
-		"test:vitest": "vitest"
+		"test": "vitest"
 	},
 	"dependencies": {
 		"clsx": "^2.1.0"

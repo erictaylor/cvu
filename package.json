@@ -46,13 +46,13 @@
 		"build": "pnpm run build:lib && pnpm run build:dts",
 		"build:dts": "tsc --project tsconfig.dts.json",
 		"build:lib": "node bin/build.mjs",
+		"check": "biome check ./",
 		"format": "biome format --write ./",
-		"lint": "biome check ./",
 		"prepublishOnly": "pnpm run build",
 		"size": "size-limit",
 		"size:why": "size-limit --why",
 		"test": "pnpm run test:biome && pnpm run test:vitest run",
-		"test:biome": "biome ci ./src",
+		"test:biome": "biome ci ./",
 		"test:vitest": "vitest"
 	},
 	"dependencies": {

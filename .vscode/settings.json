@@ -18,13 +18,15 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"editor.codeActionsOnSave": {
-		"source.organizeImports.biome": true,
-		"quickfix.biome": true
+		"source.organizeImports.biome": "explicit",
+		"quickfix.biome": "explicit"
 	},
 	"editor.formatOnSave": true,
 	"eslint.enable": false,
 	"prettier.enable": false,
 	"tailwindCSS.experimental.classRegex": [
 		["cvu\\s*(?:<[\\s\\S]*?>)?\\s*\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-	]
+	],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true
 }

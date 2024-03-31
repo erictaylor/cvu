@@ -2,6 +2,6 @@
 	"recommendations": [
 		"biomejs.biome",
 		"streetsidesoftware.code-spell-checker",
-		"ZixuanChen.vitest-explorer"
+		"vitest.explorer"
 	]
 }

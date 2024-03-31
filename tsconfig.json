@@ -10,7 +10,7 @@
 		"isolatedModules": true,
 		"lib": ["ES2021"],
 		"module": "ESNEXT",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"noEmit": true,
 		"noImplicitAny": true,
 		"noImplicitReturns": true,

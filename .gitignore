@@ -4,13 +4,16 @@
 node_modules
 .pnp
 .pnp.js
+yarn.lock
+package-lock.json
+bun.lockb
 
 # testing
 coverage
 
 # build
-build
-dist
+build/
+dist/
 
 # misc
 .DS_Store
@@ -24,13 +27,21 @@ yarn-error.log*
 # node
 **/node_modules
 
+# bun
+bunfig.toml
+
+# generated
+**/__generated__
+
 # hidden files
 **/.*
+!**/.env.example
+!**/.gitignore
 !**/.gitkeep
 !**/.storybook
 !/.editorconfig
 !/.github
-!/.gitignore
+!/.gitleaks.toml
 !/.npmrc
 !/.nvmrc
 !/.vscode

@@ -23,8 +23,12 @@ yarn add cvu
 PNPM:
 
 ```sh
-pnpm i cvu
+pnpm add cvu
 ```
+
+> [!NOTE]
+>
+> This library is an ESM only package as of version 1.0.0. No CJS version will be released.
 
 ### Tailwind CSS
 
@@ -88,11 +92,11 @@ If you find yourself using `twMerge` a lot, you can create a custom `cvu` functi
 <summary>Example with custom cvu</summary>
 
 ```tsx
-import { type ClassVariantUtility, config, cx } from "cvu";
+import { type ClassVariantUtility, config, clsx } from "cvu";
 import { twMerge } from "tailwind-merge";
 
 export const cvu: ClassVariantUtility = config({
-  cx: (...inputs) => twMerge(cx(inputs)),
+  clsx: (...inputs) => twMerge(clsx(inputs)),
 });
 ```
 
@@ -292,7 +296,7 @@ wrapper({ intent: "primary" });
 ### Composing Utilities
 
 ```ts
-import { cvu, cx, type VariantProps } from "cvu";
+import { cvu, clsx, type VariantProps } from "cvu";
 
 /**
  * Box
@@ -311,7 +315,7 @@ export interface CardClassnamesProps
     CardBaseClassnamesProps {}
 export const cardClassnames =
   ({}: /* destructured props */ CardClassnamesProps = {}) =>
-    cx(
+    clsx(
       boxClassnames({
         /* … */
       }),
@@ -346,13 +350,13 @@ const classVariants = cvu("base", variantsConfig);
 
 ### `config`
 
-Allows you to provide your own underlying `cx` implementation or wrapping logic.
+Allows you to provide your own underlying `clsx` implementation or wrapping logic.
 
 ```ts
-import { config, cx } from "cvu";
+import { config, clsx } from "cvu";
 
 export const customCvu = config({
-  cx: (...inputs) => twMerge(cx(inputs)),
+  clsx: (...inputs) => twMerge(clsx(inputs)),
 });
 ```
 

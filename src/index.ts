@@ -1,7 +1,7 @@
 import clsx, { type ClassValue } from 'clsx';
 
 type ConfigWrapperProps = {
-	cx: (...inputs: Parameters<typeof clsx>) => ReturnType<typeof clsx>;
+	clsx: (...inputs: ClassValue[]) => string;
 };
 
 type StringToBoolean<T> = T extends 'true' | 'false' ? boolean : T;
@@ -69,7 +69,7 @@ const valueToString = <T>(value: T): string => {
 };
 
 export const config =
-	({ cx }: ConfigWrapperProps): ClassVariantUtility =>
+	({ clsx: cx }: ConfigWrapperProps): ClassVariantUtility =>
 	(base, variantsConfig) => {
 		const { variants, defaultVariants, compoundVariants } =
 			variantsConfig || {};
@@ -136,8 +136,8 @@ export const config =
 		};
 	};
 
-export const cx = clsx;
+export { clsx };
 
-export const cvu = config({ cx });
+export const cvu = config({ clsx });
 
 export default cvu;

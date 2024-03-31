@@ -25,9 +25,6 @@ devDependencies:
   cspell:
     specifier: ^8.6.1
     version: 8.6.1
-  esbuild:
-    specifier: ^0.20.2
-    version: 0.20.2
   lefthook:
     specifier: ^1.6.7
     version: 1.6.7

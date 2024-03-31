@@ -56,7 +56,7 @@
 		"test:vitest": "vitest"
 	},
 	"dependencies": {
-		"clsx": "^2.0.0"
+		"clsx": "^2.1.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.3.1",

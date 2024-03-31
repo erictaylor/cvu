@@ -1,5 +1,5 @@
 import { bench } from 'vitest';
-import { cvu } from './index';
+import { cvu } from '../index';
 
 bench('cvu', () => {
 	const buttonVariants = cvu('p-2', {

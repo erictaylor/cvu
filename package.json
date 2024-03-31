@@ -24,28 +24,20 @@
 		"cva",
 		"variants"
 	],
+	"type": "module",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.js",
+			"import": "./dist/index.js",
 			"default": "./dist/index.js"
 		}
 	},
 	"main": "dist/index.js",
-	"module": "dist/index.mjs",
+	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist/*.mjs",
-		"dist/*.mjs.map",
-		"dist/*.js",
-		"dist/*.js.map",
-		"dist/*.d.ts"
-	],
+	"files": ["dist"],
 	"scripts": {
-		"build": "pnpm run build:lib && pnpm run build:dts",
-		"build:dts": "tsc --project tsconfig.dts.json",
-		"build:lib": "node bin/build.mjs",
+		"build": "tsc --project tsconfig.build.json",
 		"check": "biome check ./",
 		"format": "biome format --write ./",
 		"prepublishOnly": "pnpm run build",
@@ -72,10 +64,6 @@
 	"size-limit": [
 		{
 			"path": "dist/index.js",
-			"limit": "1 kB"
-		},
-		{
-			"path": "dist/index.mjs",
 			"limit": "600 B"
 		}
 	],

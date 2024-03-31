@@ -10,17 +10,26 @@
 		"rules": {
 			"recommended": true,
 			"a11y": {
-				"recommended": true,
-				"noAccessKey": "error"
+				"recommended": true
 			},
 			"complexity": {
 				"recommended": true,
-				"noUselessFragments": "error",
 				"useSimplifiedLogicExpression": "error"
 			},
 			"correctness": {
 				"recommended": true,
+				"noUnusedImports": "error",
 				"noUnusedVariables": "error"
+			},
+			"nursery": {
+				"noBarrelFile": "error",
+				"noDuplicateJsonKeys": "error"
+			},
+			"performance": {
+				"recommended": true
+			},
+			"security": {
+				"recommended": true
 			},
 			"style": {
 				"recommended": true,
@@ -29,6 +38,9 @@
 				"useExponentiationOperator": "error",
 				"useFragmentSyntax": "error",
 				"useSingleCaseStatement": "error"
+			},
+			"suspicious": {
+				"recommended": true
 			}
 		}
 	},
@@ -36,11 +48,20 @@
 		"enabled": true
 	},
 	"files": {
-		"ignore": ["**/node_modules/**", "**/dist/**", "**/coverage/**"]
+		"ignore": [
+			"**/node_modules/**",
+			"**/dist/**",
+			"**/coverage/**",
+			"**/.next/**",
+			"**/out/**",
+			"**/__generated__/**"
+		],
+		"ignoreUnknown": true
 	},
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
+		"defaultBranch": "main",
 		"useIgnoreFile": true
 	}
 }

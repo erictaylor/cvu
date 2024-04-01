@@ -6,7 +6,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"packageManager": "pnpm@8.5.1",
+	"packageManager": "pnpm@8.15.5",
 	"author": "Eric Taylor <eric@daxos.com> (https://github.com/erictaylor)",
 	"repository": {
 		"type": "git",

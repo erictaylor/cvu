@@ -4,6 +4,15 @@
   A tiny, performant, utility for constructing variant based CSS class strings.
 </p>
 
+<p align="center">
+<a href="https://jsr.io/@erictaylor/cvu">
+  <img src="https://jsr.io/badges/@erictaylor/cvu" alt="" />
+</a>
+<a href="https://jsr.io/@erictaylor/cvu">
+  <img src="https://jsr.io/badges/@erictaylor/cvu/score" alt="" />
+</a>
+</p>
+
 <br />
 
 ## Installation
@@ -12,23 +21,43 @@ NPM:
 
 ```sh
 npm i cvu
+# or
+npx jsr add @erictaylor/cvu
 ```
 
 Yarn:
 
 ```sh
 yarn add cvu
+# or
+yarn dlx jsr add @erictaylor/cvu
 ```
 
 PNPM:
 
 ```sh
 pnpm add cvu
+# or
+pnp dlx jsr add @erictaylor/cvu
+```
+
+Bun:
+
+```sh
+bun add cvu
+# or
+bux jsr add @erictaylor/cvu
+```
+
+Deno:
+
+```sh
+deno add @erictaylor/cvu
 ```
 
 > [!NOTE]
 >
-> This library is an ESM only package as of version 1.0.0. No CJS version will be released.
+> This library is an ESM _only_ package as of version 1.0.0.
 
 ### Tailwind CSS
 

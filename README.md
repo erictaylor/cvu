@@ -6,10 +6,10 @@
 
 <p align="center">
 <a href="https://jsr.io/@erictaylor/cvu">
-  <img src="https://jsr.io/badges/@erictaylor/cvu" alt="" />
+  <img src="https://jsr.io/badges/@erictaylor/cvu?v=1.0.0" alt="" />
 </a>
 <a href="https://jsr.io/@erictaylor/cvu">
-  <img src="https://jsr.io/badges/@erictaylor/cvu/score" alt="" />
+  <img src="https://jsr.io/badges/@erictaylor/cvu/score?v=1.0.0" alt="" />
 </a>
 </p>
 

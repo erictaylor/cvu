@@ -4,14 +4,18 @@
 	"version": "1.0.0",
 	"exports": "./src/index.ts",
 	"publish": {
-		"exclude": ["**/__tests__/**"],
-		"include": [
-			"LICENSE.md",
-			"README.md",
-			"package.json",
-			"src/**/*.ts",
-			"src/**/*.tsx",
-			"dist"
+		"exclude": [
+			// Add "dist" back since its gitignored.
+			"!dist",
+			"**/__tests__/**",
+			".github",
+			".vscode",
+			".editorconfig",
+			"biome.jsonc",
+			"commitlint.config.mjs",
+			"cspell.yaml",
+			"lefthook.yml",
+			"pnpm-lock.yaml"
 		]
 	}
 }

@@ -8,7 +8,7 @@
  *
  * For more information see the {@link https://github.com/erictaylor/cvu/blob/main/README.md|GitHub README}
  */
-import clsx, { type ClassValue } from 'clsx';
+import { type ClassValue, clsx } from 'clsx';
 
 type ConfigWrapperProps = {
 	clsx: (...inputs: ClassValue[]) => string;
@@ -290,6 +290,6 @@ export { clsx };
  * // => 'font-semibold border rounded bg-white text-gray-800 border-gray-400 hover:bg-gray-100 text-sm py-1 px-2'
  * ```
  */
-export const cvu = config({ clsx });
+export const cvu: ClassVariantUtility = config({ clsx });
 
 export default cvu;

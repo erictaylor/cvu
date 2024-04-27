@@ -31,6 +31,5 @@ jobs:
       - name: Build
         run: pnpm run build
 
-        # TODO: Remove --allow-slow-types once https://github.com/jsr-io/jsr/issues/346 is resolved.
       - name: Publish to JSR
-        run: pnpm dlx jsr publish --allow-slow-types
+        run: pnpm dlx jsr publish
